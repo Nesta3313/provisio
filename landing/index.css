@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+#page {
+    width: 100%;
+    background-color: #2e2017;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner-container {
+    width: 100%;
+}
+
+#img-div {
+    width: 100%;
+}
+
+#img{
+    width: 100%;
+    
+    display: block;
+}
+
+/* TEXT ************************************************************************************************** */
+
+#text {  /* container for all text on page (not navigation) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    position: absolute;
+    top: 37%;
+}
+
+.txt-inner {
+    margin-bottom: 3%;
+}
+h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 300%;
+    font-weight: 400;
+    color: white;
+}
+
+#at-word, #ays-word {
+    font-size: 200%;
+}
+
+
+#luxury {  /* luxury text container div */
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media(max-width:1250px){
+    
+    #text {
+        top: 33%;
+    }
+
+    
+}
+
+@media(max-width: 1100px){
+    #text {
+        top: 30%;
+    }
+    
+}
+
+@media(max-width: 1000px){
+   
+    
+}
+
+
+@media(max-width: 900px){
+   
+    
+}
+
+
+@media(max-width: 850px){
+
+   
+    #text {
+    
+        top: 33%;
+    }
+
+    h1{
+        font-size: 200%;
+    }
+
+    #at-word, #ays-word {
+        font-size: 100%;
+    }
+}
+
+@media(max-width: 840px){
+    #text {
+        top: 33%;
+    }
+
+    h1{
+        font-size: 200%;
+    }
+
+    #at-word, #ays-word {
+        font-size: 100%;
+    }
+}
+
+@media(max-width: 770px){
+    #text{
+       position: static;
+       border-top: 2px solid white;
+       padding: 10px;
+       margin: 0;
+       background-color: black;
+    }
+    
+    
+}
+
+@media(max-width: 760px){
+    
+    #text {
+        top: 23%;
+        
+    }
+
+    h1{
+        font-size: 200%;
+    }
+
+    #at-word, #ays-word {
+        font-size: 100%;
+    }
+}
+
+@media(max-width: 601px){
+
+    #text {
+        
+        top: 20%;
+    }
+
+    h1{
+        font-size: 200%;
+    }
+
+    #at-word, #ays-word {
+        font-size: 100%;
+    }
+
+
+}
+
+
