@@ -24,9 +24,9 @@ CREATE TABLE registrations (
 CREATE TABLE reservations (
     reservation_ID int NOT NULL,
     hotel_ID int NOT NULL,
-    check_in varchar(255) NOT NULL,
-    check_out varchar(255) NOT NULL,
-    number_of_guest varchar(255) NOT NULL,
+    check_in date NOT NULL,
+    check_out date NOT NULL,
+    number_of_guest int NOT NULL,
     customer_ID int NOT NULL,
     location varchar(255) NOT NULL,
     room_size varchar(255) NOT NULL,
