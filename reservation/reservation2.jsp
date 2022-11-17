@@ -102,9 +102,9 @@ if(request.getMethod().equals("GET")){  // display a form
         				
         				<label>Location (city, state)</label><br/>
   						<select name="location" id="location" required> 
-    					<option value="Los Vegas NV">Los Vegas, NV</option>
-    					<option value="Atlanta, GA">Atlanta, GA</option>
-    					<option value="Chicago, IL">Chicago, IL</option>
+    					<option value="Las Vegas, NV">Las Vegas, NV</option>
+    					<option value="Atlanta GA">Atlanta, GA</option>
+    					<option value="Chicago IL">Chicago, IL</option>
   						</select>
         			</div>
         			
@@ -202,7 +202,7 @@ if(request.getMethod().equals("GET")){  // display a form
 		String number_of_guest = request.getParameter("number_of_guest");
 
 		String location = request.getParameter("location");
-		int hotel_id = hotel.findHotelId(location);  // get the hotel id
+		// int hotel_id = hotel.findHotelId(location);  // get the hotel id
 
 		String room_size = request.getParameter("room_size");
 
@@ -210,10 +210,11 @@ if(request.getMethod().equals("GET")){  // display a form
 
 		int loyalty_points = reservationBean.calculatePoints(check_in, check_out);
 
+		// set session objects
 		HttpSession sess = request.getSession(); 
 		sess.setAttribute("reservation_id", reservation_id);
 		sess.setAttribute("customer_ID", customer_id);
-		sess.setAttribute("hotel_ID", hotel_id);
+		
 		sess.setAttribute("check_in", check_in);
 		sess.setAttribute("check_out", check_out);
 		sess.setAttribute("number_of_guest", number_of_guest);
@@ -222,9 +223,16 @@ if(request.getMethod().equals("GET")){  // display a form
 		sess.setAttribute("amenities", amenities);
 		sess.setAttribute("loyalty_points", loyalty_points);
 
+		
+		// code for passing parameters to form reservation bean object
 		reservationBean.setReservation_ID(reservation_id);
-		//reservationBean.setHotel_ID(hotel_id);
-		reservationBean.setHotel_ID(200);
+				
+		int hotel_id = reservationBean.findHotel(location);
+				
+		reservationBean.setHotel_ID(hotel_id);
+		out.print(reservationBean.getHotel_ID());
+		sess.setAttribute("hotel_ID", hotel_id);
+		// reservationBean.setHotel_ID(200);
 		reservationBean.setCheck_in(check_in);
 		reservationBean.setCheck_out(check_out);
 		reservationBean.setNumber_of_guest(number_of_guest);
@@ -322,8 +330,6 @@ if(request.getMethod().equals("GET")){  // display a form
       
 </body>
 </html>
-
-
 
 
 
