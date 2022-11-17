@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+
+#page {
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	margin-top: 180px;
+	margin-bottom: 180px;
+	
+	font-weight: light;
+}
+
+
+#thankyou{
+	padding: 50px;
+}
+
+
+#resid {
+	padding: 50px;
+}
