@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 import provisio.acctBean;
@@ -47,11 +50,19 @@ public class verifyAcctBean extends HttpServlet {
 			rs = stmt.executeQuery();
 
 			if (rs.next() == false) {
-				showMessageDialog(null, "Email is not on file. Please sign up first.");
-				target = "loginsignup.jsp";
-				
-				response.sendRedirect(target);
-				return;
+
+				int input = JOptionPane.showOptionDialog(null, "Email not on file. Please sign up.", "Error", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+
+				if(input == JOptionPane.OK_OPTION)
+				{
+					target = "loginsignup.jsp";
+					response.sendRedirect(target);
+				}
+				if(input == JOptionPane.CANCEL_OPTION)
+				{
+					target = "index.html";
+					response.sendRedirect(target);
+				}
 			}
 			
 			do{
@@ -93,9 +104,19 @@ public class verifyAcctBean extends HttpServlet {
 
 				if (!password.equals(dbpassword)) {
 
-					showMessageDialog(null, "Password incorrect. Please try again.");
-					target = "loginsignup.jsp";
-					response.sendRedirect(target);
+					int input = JOptionPane.showOptionDialog(null, "Password incorrect. Please try again", "Error", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+
+					if(input == JOptionPane.OK_OPTION)
+					{
+						target = "loginsignup.jsp";
+						response.sendRedirect(target);
+					}
+					if(input == JOptionPane.CANCEL_OPTION)
+					{
+						target = "index.html";
+						response.sendRedirect(target);
+					}
+					
 					return;
 				}
 

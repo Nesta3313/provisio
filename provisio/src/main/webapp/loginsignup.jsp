@@ -15,30 +15,72 @@
 
 <script type="text/javascript">
 	function success2() {
+		var pass = document.getElementById("password2").value;
+		var confirmpass = document.getElementById("confirmpass").value;
+		
+		document.getElementById("fname_error").innerHTML = "";
+		document.getElementById("lname_error").innerHTML = "";
+		document.getElementById("email2_error").innerHTML = "";
+		document.getElementById("password2_error").innerHTML = "";
+		document.getElementById("confirm_error").innerHTML = "";
 
-		if (document.getElementById("first_name").value === ""
+		if (       document.getElementById("first_name").value === ""
 				|| document.getElementById("last_name").value === ""
 				|| document.getElementById("email2").value === ""
 				|| document.getElementById("password2").value === ""
 				|| document.getElementById("confirmpass").value === "") {
+			
 			document.getElementById('button2').disabled = true;
+			
+			if (document.getElementById("first_name").value === ""){
+				document.getElementById('button2').disabled = true;
+				document.getElementById("fname_error").innerHTML = "Please enter a first name";
+			}
+
+			if (document.getElementById("last_name").value === ""){
+				document.getElementById('button2').disabled = true;
+				document.getElementById("lname_error").innerHTML = "Please enter a last name";
+			}
+			
+			if (document.getElementById("email2").value === ""){
+				document.getElementById('button2').disabled = true;
+				document.getElementById("email2_error").innerHTML = "Please enter an email";
+			}
+			
+			if (document.getElementById("password2").value === ""){
+				document.getElementById('button2').disabled = true;
+				document.getElementById("password2_error").innerHTML = "Please enter a password";
+			}
+			
+			if (document.getElementById("confirmpass").value === ""){
+				document.getElementById('button2').disabled = true;
+				document.getElementById("confirm_error").innerHTML = "Please enter password again";
+			}
+		}else if (pass != confirmpass) {
+			document.getElementById('button2').disabled = true;
+			document.getElementById("confirm_error").innerHTML = "Passwords do not match";
+		}  else {
+			document.getElementById('button2').disabled = false;
 		}
-
-		var pass = document.getElementById("password2").value;
-		var confirmpass = document.getElementById("confirmpass").value;
-
-		if (!pass === confirmpass) {
-			document.getElementById('button2').disabled = true;
-			alert("Passwords do not match");
-		} 
 		
-		document.getElementById('button2').disabled = false;
 	}
 
 	function success() {
+		document.getElementById("email_error").innerHTML = "";
+		document.getElementById("password_error").innerHTML = "";
+			
 		if (document.getElementById("email").value === ""
 	     || document.getElementById("password").value === "") {
 			document.getElementById('button').disabled = true;
+			
+			if(document.getElementById("email").value ===""){
+				document.getElementById("email_error").innerHTML = "Please enter an email";
+			}
+			
+			if(document.getElementById("password").value === ""){
+				document.getElementById("password_error").innerHTML = "Please enter your password";
+
+			}
 		} else {
 			document.getElementById('button').disabled = false;
 		}
@@ -112,13 +154,18 @@
 	<div class="cont">
 		<div class="form sign-in">
 			<form name="login" action="${pageContext.request.contextPath}/verify"
-				method="get">
+				method="get" onSubmit="document.getElementById('login').reset();">
 				<h2>Welcome to Provisio Hotels and Resorts</h2>
-				<label> <span>Email</span> <input id="email" type="email"
+				<label> <span>Email</span> 
+				<input id="email" type="email"
 					name="email" onkeyup="success()" />
-				</label> <label> <span>Password</span> <input id="password"
+				</label> 
+				<span id="email_error"></span>
+				<label> <span>Password</span> 
+				<input id="password"
 					type="password" name="password" onkeyup="success()" />
 				</label>
+				<span id="password_error"></span>
 				<p class="forgot-pass">Forgot password?</p>
 
 				<button id="button" type="submit" class="submit" disabled>Sign
@@ -149,20 +196,25 @@
 					<h2>Join Provisio Rewards</h2>
 					<label> <span>First Name</span> <input type="text"
 						id="first_name" name="first_name" onkeyup="success2()">
-					</label> 
+					</label>
+					<span id="fname_error"></span>
 					<label> <span>Last Name</span> <input type="text"
 						id="last_name" name="last_name" onkeyup="success2()">
-					</label> 
+					</label>
+					<span id="lname_error"></span>
 					<label> <span>Email</span> <input type="email" id="email2"
 						name="email2" onkeyup="success2()">
-					</label> 
+					</label>
+					<span id="email2_error"></span>
 					<label> <span>Password</span> <input type="password"
 						id="password2" name="password2" onkeyup="success2()">
-					</label> 
+					</label>
+					<span id="password2_error"></span>
 					<label> <span>Confirm Password</span> <input
 						type="password" id="confirmpass" name="confirmpass"
 						onkeyup="success2()">
 					</label>
+					<span id="confirm_error"></span>
 					<button id="button2" type="submit" class="submit" disabled>Sign Up</button>
 				</form>
 			</div>
