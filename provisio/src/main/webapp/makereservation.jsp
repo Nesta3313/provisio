@@ -236,7 +236,7 @@ HttpSession sess = request.getSession();
 		int hotel_id = reservationBean.findHotel(location);
 				
 		reservationBean.setHotel_ID(hotel_id);
-		out.print(reservationBean.getHotel_ID());
+		//out.print(reservationBean.getHotel_ID());
 		sess.setAttribute("hotel_ID", hotel_id);
 		// reservationBean.setHotel_ID(200);
 		reservationBean.setCheck_in(check_in);
