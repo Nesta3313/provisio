@@ -23,7 +23,7 @@ html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("./images/lobby.png");
+  background-image: url("../images/lobby.png");
   background-size: cover;
   background-repeat: no-repeat;
   /*z-index:-1;*/
