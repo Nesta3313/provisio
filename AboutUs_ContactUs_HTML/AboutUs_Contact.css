@@ -64,6 +64,7 @@ html {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   z-index: 1;
+  padding-left: 30px;
 }
 .app__text-line {
   transition: transform 1500ms 400ms, opacity 750ms 500ms;
