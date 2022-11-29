@@ -19,7 +19,7 @@ html {
   background-image: url("Images/lobby.png");
   background-size: cover;
   background-repeat: no-repeat;
-  
+   z-index:-1;
   overflow: hidden;
 }
 
