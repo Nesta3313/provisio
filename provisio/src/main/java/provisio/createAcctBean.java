@@ -19,7 +19,7 @@ public class createAcctBean {
         Class.forName("com.mysql.jdbc.Driver");
 
         try (Connection conn = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/provisio", "root", "password");
+            .getConnection("jdbc:mysql://localhost:3306/provisio", "root", "MySQL8IsGreat!");
 
             PreparedStatement stmt = conn.prepareStatement(INSERT_USERS_SQL)) {
         	stmt.setInt(1, rand);

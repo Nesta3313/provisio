@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+
+.navbar2{
+	border-bottom: 1px solid;
+}
+
+
+body{
+	/*background-image: url("../images/reservation-banner-2000-1000-px.jpg");*/
+	
+}
+#form-div{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+	
+	margin-top: 140px;
+	margin-bottom: 120px;
+	
+}
+
+#form-div div{
+	/*border: 2px solid black;*/
+	width: 100%;
+	padding: 15px;
+	font-weight: bold;
+
+}
+
+#form-div input{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	
+	padding: 5px;
+}
+
+#form-div select{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	
+	padding: 5px;
+}
+
+#upper-form{
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	border-top: 3px solid black;
+	
+	
+}
+
+
+#lower-form{
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	
+	
+}
+
+#button-div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	
+	border-bottom: 3px solid black;
+	
+}
+
+#inner-button-div{
+	width: 50%;
+}
+
+#button{
+	color: white;
+	background-color: black;
+	width: 100%;
+	height: 50px;
+}
+#button:hover{
+	cursor: pointer;
+}
+
+input:hover{
+	cursor: pointer;
+}
+
+select:hover{
+	cursor: pointer;
+}

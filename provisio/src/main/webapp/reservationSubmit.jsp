@@ -1,13 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@page import="provisio.acctBean"%>
+<%@page import="provisio.ReservationBean"%>
+<%@page import="provisio.ReservationBeanPeer"%>
+<%@page import="provisio.HotelBean"%>
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8">
     <title>Provisio Hotels and Resorts</title>
-    <link rel="stylesheet" href="styles/navigation.css">
-    <link rel="stylesheet" href="styles/navigation2.css">
-    
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/navigation.css">
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/navigation2.css">
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/reservation.css">
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/summary.css">
+  
 </head>
 <body>
-    <!--First Nav Bar-->
+        <!--First Nav Bar-->
       <nav class="navbar">
          <div class="container">
             <div class="navbar-header">
@@ -50,21 +62,40 @@
             </div>
          </div>
       </nav>
-      
       <!-- partial -->
-    <script  src="scripts/script.js"></script>
+    <script  src="./scripts/script.js"></script>
+
+    <div id="page">
+    
+    
+    
+    </div>
+    
+<%
+HttpSession sess = request.getSession(); 
+
+ReservationBeanPeer reservationBeanPeer = new ReservationBeanPeer();
+
+out.print(sess.getAttribute("reservation_id"));
+out.print(sess.getAttribute("hotel_id"));
+reservationBeanPeer.insertReservationRecord(sess.getAttribute("reservation_id"), sess.getAttribute("hotel_id"), sess.getAttribute("check_in"),
+		sess.getAttribute("check_out"), sess.getAttribute("number_of_guest"), sess.getAttribute("customer_id"), sess.getAttribute("location"),
+		sess.getAttribute("room_size"), sess.getAttribute("amenities"), sess.getAttribute("loyalty_points"));
 
 
 
+//reservationBeanPeer.insertReservation(reservationBean);
+%>
 
+<%//} %>
     <footer>
-      <div id="footer">
-          <p> <a href="#" target="_blank"> PROVISIO </a> 
-              &copy; <script>document.write(new Date().getFullYear());</script>
-          </p>
-      </div>
-      
-  </footer>
+        <div id="footer">
+            <p> <a href="#" target="_blank"> PROVISIO </a> 
+                &copy; <script>document.write(new Date().getFullYear());</script>
+            </p>
+        </div>
+        
+    </footer>
       
 </body>
 </html>

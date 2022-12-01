@@ -6,8 +6,8 @@
 
 body {
   font-family: "Quicksand", sans-serif;
-  background: #ededed;
-  background-image: url("images/lounge.PNG");
+  background: #ededed; 
+  background-image: url("../images/lounge.PNG");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -87,7 +87,7 @@ button {
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url("./images/Resort.PNG");
+  background-image: url("../images/Resort.PNG");
   background-size: cover;
   transition: transform 1.2s ease-in-out;
 }
@@ -197,8 +197,8 @@ label span {
 input {
   display: block;
   width: 100%;
-  margin-top: 5px;
-  padding-bottom: 5px;
+  margin-top: 3px;
+  padding-bottom: 3px;
   font-size: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   text-align: center;

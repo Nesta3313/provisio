@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Provisio Hotels and Resorts</title>
+      <link rel='stylesheet'>
+      <link rel="stylesheet" href="styles/navigation.css">
+      <link rel='stylesheet'>
+      <link rel="stylesheet" href="styles/navigation2.css">
+      <link rel='stylesheet'>
+      <link rel="stylesheet" href="styles/contact.css">
+   </head>
+   <body>
+      <!--First Nav Bar-->
+      <nav class="navbar">
+         <div class="container">
+            <div class="navbar-header">
+               <button class="navbar-toggler" data-toggle="open-navbar1">
+               <span></span>
+               <span></span>
+               <span></span>
+               </button>
+               <a href="#">
+               <img src="images/ProvisioLogo.png" alt="Paris" class="center" width="150px" height="auto">
+               </a>
+            </div>
+            <div class="navbar-menu" id="open-navbar1">
+               <ul class="navbar-nav">
+                  <li><a href="index.html">HOME</a></li>
+                  <li class="navbar-dropdown">
+                     <a href="about.html" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+                     ABOUT US <i class="fa fa-angle-down"></i>
+                     </a>
+                  <li class="navbar-dropdown">
+                     <a href="contact.html" class="dropdown-toggler" data-dropdown="blog">
+                     CONTACT <i class="fa fa-angle-down"></i>
+                     </a>
+                  </li>
+                  <li><a href="locations.html">LOCATIONS</a></li>
+                  <li><a href="makereservation.jsp">MAKE RESERVATIONS</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!--Second Nav Bar-->
+      <nav class="navbar2">
+         <div class="container">
+            <div class="navbar2-menu" id="open-navbar2">
+               <ul class="navbar2-nav">
+                  <li><a href="loginsignup.jsp">SIGN IN</a></li>
+                  <li><a href="loyaltypoints.jsp">LOYALTY POINTS</a></li>
+                  <li><a href="summary.jsp">SEARCH RESERVATIONS</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- partial -->
+      <script src="scripts/script.js"></script>
+      <script src="scripts/contact.js"></script>
+      
+      <div class="contact-main">
+      <section id="contact">
+         <h1 class="section-header">Contact</h1>
+         <div class="contact-wrapper">
+            <!-- Left contact page --> 
+            <form id="contact-form" class="form-horizontal" role="form">
+               <div class="form-group">
+                  <div class="col-sm-12">
+                     <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-sm-12">
+                     <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
+                  </div>
+               </div>
+               <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+               <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                  <div class="alt-send-button">
+                     <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                  </div>
+               </button>
+            </form>
+            <!-- Left contact page --> 
+               <div class="direct-contact-container">
+                  <ul class="contact-list">
+                     <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text corp">Corporate HQ:</span></i>
+                     <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">2525 Provisio Ln</span></i></li>
+                     <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Cityville, State</span></i></li>
+                     <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-555-687-2525" title="Call us">(555) 687-2525</a></span></i></li>
+                     <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:contact@provisio.com" title="Send me an email">contact@provisio.com</a></span></i></li>
+                     <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text corp">Toll Free:</span></i>                     
+                     <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-800-555-2525" title="Call us">(800) 555-2525</a></span></i></li>
+                  </ul>
+                  <hr>
+                  <hr>
+                  <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+               </div>
+            </div>
+      </section>
+      </div>
+      <footer>
+         <div id="footer">
+            <p>
+               <a href="#" target="_blank"> PROVISIO </a> 
+               &copy; <script>document.write(new Date().getFullYear());</script>
+            </p>
+         </div>
+      </footer>
+   </body>
+</html>

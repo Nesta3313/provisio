@@ -7,24 +7,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import static javax.swing.JOptionPane.showMessageDialog;
+import provisio.acctBean;
 
 @WebServlet("/verify")
 
 public class verifyAcctBean extends HttpServlet {
 	ResultSet rs;
+	int dbcustomerid = 0;
 	String dbemail = null;
 	String dbpassword = null;
 
 	private static final long serialVersionUID = 1L;
 
+	protected void doPost(HttpServletRequest request,
+		      HttpServletResponse response) throws ServletException, IOException {
+		    doPost(request, response);
+		    }
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
@@ -32,24 +43,33 @@ public class verifyAcctBean extends HttpServlet {
 		String eQUERY = "SELECT * FROM registrations WHERE email = '" + email + "';";
 		String target = "";
 
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio", "root", "password");
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio", "root", "MySQL8IsGreat!");
 
 			PreparedStatement stmt = conn.prepareStatement(eQUERY)) {
 			acctBean acct = new acctBean();
 			rs = stmt.executeQuery();
 
 			if (rs.next() == false) {
-				showMessageDialog(null, "Email is not on file. Please sign up first.");
-				target = "loginsignup.jsp";
-				
-				response.sendRedirect(target);
-				return;
+
+				int input = JOptionPane.showOptionDialog(null, "Email not on file. Please sign up.", "Error", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+
+				if(input == JOptionPane.OK_OPTION)
+				{
+					target = "loginsignup.jsp";
+					response.sendRedirect(target);
+				}
+				if(input == JOptionPane.CANCEL_OPTION)
+				{
+					target = "index.html";
+					response.sendRedirect(target);
+				}
 			}
 			
 			do{
 
 				dbemail = rs.getString(4);
 				dbpassword = rs.getString(5);
+				dbcustomerid = rs.getInt(1);
 				dbemail = dbemail.toString();
 				dbpassword = dbpassword.toString();
 
@@ -68,17 +88,35 @@ public class verifyAcctBean extends HttpServlet {
 					acct.setLastName(last_name);
 					acct.setEmail(email);
 					acct.setPassword(password);
+					
+					acct.getCustomerID();
+					sess.setAttribute("customer_id", dbcustomerid);
 
-					target = "loyaltypoints.jsp";	
-					response.sendRedirect(target);
+					
+					target = "/makereservation.jsp";	
+					//target = "loyaltypoints.jsp";
+					//response.sendRedirect(target);
+					
+					RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(target);
+				    requestDispatcher.forward(request, response);
 					return;
 				}
 
 				if (!password.equals(dbpassword)) {
 
-					showMessageDialog(null, "Password incorrect. Please try again.");
-					target = "loginsignup.jsp";
-					response.sendRedirect(target);
+					int input = JOptionPane.showOptionDialog(null, "Password incorrect. Please try again", "Error", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+
+					if(input == JOptionPane.OK_OPTION)
+					{
+						target = "loginsignup.jsp";
+						response.sendRedirect(target);
+					}
+					if(input == JOptionPane.CANCEL_OPTION)
+					{
+						target = "index.html";
+						response.sendRedirect(target);
+					}
+					
 					return;
 				}
 
@@ -110,3 +148,4 @@ public class verifyAcctBean extends HttpServlet {
 		}
 	}
 }
+

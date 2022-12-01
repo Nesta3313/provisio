@@ -1,13 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@page import="provisio.acctBean"%>
+<%@page import="provisio.ReservationBean"%>
+<%@page import="provisio.ReservationBeanPeer"%>
+<%@page import="provisio.HotelBean"%>
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="UTF-8">
     <title>Provisio Hotels and Resorts</title>
-    <link rel="stylesheet" href="styles/navigation.css">
-    <link rel="stylesheet" href="styles/navigation2.css">
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/navigation.css">
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/navigation2.css">
+    <link rel='stylesheet'><link rel="stylesheet" href="styles/reservationConfirmation.css">
     
+  
 </head>
 <body>
-    <!--First Nav Bar-->
+     <!--First Nav Bar-->
       <nav class="navbar">
          <div class="container">
             <div class="navbar-header">
@@ -50,21 +62,30 @@
             </div>
          </div>
       </nav>
-      
       <!-- partial -->
     <script  src="scripts/script.js"></script>
 
+<% 
+if(request.getMethod().equals("GET")){  // display a form
+	HttpSession sess = request.getSession(); 
+%>
+    <div id="page">
+    
+	<div id="thankyou"> <h1> Thank You for Choosing Provisio! </h1> </div>	
+		
+	<div id="resid"> <h2> Your reservation ID is <% out.print(sess.getAttribute("reservation_id"));%></h2> </div>
+    </div>
 
-
+<%} %>
 
     <footer>
-      <div id="footer">
-          <p> <a href="#" target="_blank"> PROVISIO </a> 
-              &copy; <script>document.write(new Date().getFullYear());</script>
-          </p>
-      </div>
-      
-  </footer>
+        <div id="footer">
+            <p> <a href="#" target="_blank"> PROVISIO </a> 
+                &copy; <script>document.write(new Date().getFullYear());</script>
+            </p>
+        </div>
+        
+    </footer>
       
 </body>
 </html>
