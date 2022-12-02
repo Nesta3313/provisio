@@ -45,7 +45,9 @@ public class verifyAcctBean extends HttpServlet {
 
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio", "root", "MySQL8IsGreat!");
 
-			PreparedStatement stmt = conn.prepareStatement(eQUERY)) {
+				PreparedStatement stmt = conn.prepareStatement(eQUERY)) {
+			
+			
 			acctBean acct = new acctBean();
 			rs = stmt.executeQuery();
 
@@ -128,7 +130,7 @@ public class verifyAcctBean extends HttpServlet {
 
 		} catch (SQLException e) {
 			printSQLException(e);
-		}
+		} 
 
 	}
 

@@ -44,7 +44,7 @@
                      CONTACT <i class="fa fa-angle-down"></i>
                      </a>
                   </li>
-                  <li><a href="locations.html">LOCATIONS</a></li>
+                  <li><a href="location.html">LOCATIONS</a></li>
                   <li><a href="makereservation.jsp">MAKE RESERVATIONS</a></li>
                </ul>
             </div>
@@ -57,7 +57,7 @@
                <ul class="navbar2-nav">
                   <li><a href="loginsignup.jsp">SIGN IN</a></li>
                   <li><a href="loyaltypoints.jsp">LOYALTY POINTS</a></li>
-                  <li><a href="summary.jsp">SEARCH RESERVATIONS</a></li>
+                  <li><a href="search.jsp">SEARCH RESERVATIONS</a></li>
                </ul>
             </div>
          </div>

@@ -136,7 +136,7 @@ public class ReservationBean extends createServlet {
 		String amenities_string = " ";
 		for(int i = 0; i < amenities.length;++i) {
 			String addition = amenities[i].toString();
-			amenities_string += addition;
+			amenities_string += addition + " ";
 		}
 		return amenities_string;
 	}
@@ -160,7 +160,5 @@ public class ReservationBean extends createServlet {
 		
 		return hotel_ID;
 	}
-	
-
 	
 }

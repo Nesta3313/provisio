@@ -24,9 +24,9 @@ CREATE TABLE registrations (
 CREATE TABLE reservations (
     reservation_ID int NOT NULL,
     hotel_ID int NOT NULL,
-    check_in date NOT NULL,
-    check_out date NOT NULL,
-    number_of_guest int NOT NULL,
+    check_in varchar(255) NOT NULL,
+    check_out varchar(255) NOT NULL,
+    number_of_guest varchar(255) NOT NULL,
     customer_ID int NOT NULL,
     location varchar(255) NOT NULL,
     room_size varchar(255) NOT NULL,
@@ -54,5 +54,5 @@ INSERT INTO registrations VALUES (101, 'Celine', 'Dion', 'celine@celine.com', '1
 
 INSERT INTO reservations VALUES (222, 200, '2022-12-20', '2022-12-24', 2, 100, 'Chicago, IL', 'king', 'breakfast', 600);
 INSERT INTO reservations VALUES (330, 404, '2023-01-13', '2023-01-14', 1, 2002, 'Atlanta GA', 'queen', 'wi-fi', 150);
-INSERT INTO reservations VALUES (590, 201, '2022-11-08', '2022-11-10', 3, 100, 'Las vegas, NV', 'king', 'parking', 300);
+INSERT INTO reservations VALUES (3000, 201, '2022-11-08', '2022-11-10', '4-5', 101, 'Las vegas, NV', 'king', 'parking', 300);
 
