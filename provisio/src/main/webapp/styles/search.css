@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+	.grid-container {
+    	display: grid;
+    	grid-template-columns: 1fr 1fr;
+    	grid-gap: 20px;
+    	height: 90vh
+    }
+
+    .pic {
+        margin-top: 60px;
+        height:600px;
+        width: 800px;
+        margin-right: 30px;
+        margin-bottom: 40px;
+    }
+
+    .form {
+        text-align: center;
+        margin-top: 60px;
+
+    }
+
+    .call {
+        font-family: "Quicksand", sans-serif; 
+        font-size: 20pt;
+        margin-bottom: 50px;
+        
+    }
+
+    .search {
+        background-color: rgb(232, 232, 232);
+        width: 200px;
+        height: 30px;
+        margin-right: 40px;
+        margin-left: 60px;
+        border: 1px;
+        padding: 5px;
+        box-shadow: 2px 2px #888888;
+        border-radius: 3px;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none; 
+        
+    }
+
+    .submit {
+        height: 30px;
+        width: 90px;
+        color: aliceblue;
+        background-color: black;
+        border-radius: 3px;
+        cursor: pointer;
+    }

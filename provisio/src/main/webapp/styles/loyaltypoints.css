@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+		.cont {
+        	display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			height: 90vh;
+		
+		
+    	}
+    
+
+
+		table {
+        	border-collapse: collapse;
+        	width: 70%;
+        	height: 60%
+ 		}
+          
+        th, td {
+            text-align: center;
+            padding: 8px;
+            font-weight: normal;
+            font-size: 15px;
+            
+        }
+          
+        tr:nth-child(even) {
+            background-color: #c9c6c5;
+            color: black;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: black;
+            color: white;
+        }
+        
+        p {
+        	font-size: 20px
+        }

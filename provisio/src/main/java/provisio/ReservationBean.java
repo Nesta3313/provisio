@@ -161,6 +161,4 @@ public class ReservationBean extends createServlet {
 		return hotel_ID;
 	}
 	
-
-	
 }
