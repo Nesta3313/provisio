@@ -253,7 +253,16 @@ input {
   width: 100%;
   vertical-align: top;
 }
+
 .icon-link--twitter {
   left: auto;
   right: 5px;
+}
+   .image
+{
+    background:url(images/back.png);
+    height:100px;
+    width:100px;
+    display: block;
+    float:left;
 }

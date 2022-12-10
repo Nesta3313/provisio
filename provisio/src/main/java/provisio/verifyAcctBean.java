@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,12 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
-import static javax.swing.JOptionPane.showMessageDialog;
-import provisio.acctBean;
 
 @WebServlet("/verify")
 
@@ -28,9 +24,21 @@ public class verifyAcctBean extends HttpServlet {
 	int dbcustomerid = 0;
 	String dbemail = null;
 	String dbpassword = null;
-
+	String dbpasskey = null;
+    
 	private static final long serialVersionUID = 1L;
 
+	public String caesarCipherDecrypte(String secret) {
+		   StringBuilder tmp = new StringBuilder();
+		   final int OFFSET = 4;
+		   for (int i = 0; i < secret.length(); i++) {
+		      tmp.append((char)(secret.charAt(i) - OFFSET));
+		   }
+
+		   String reversed = new StringBuffer(tmp.toString()).reverse().toString();
+		   return new String(Base64.getDecoder().decode(reversed));
+		}
+	
 	protected void doPost(HttpServletRequest request,
 		      HttpServletResponse response) throws ServletException, IOException {
 		    doPost(request, response);
@@ -40,6 +48,7 @@ public class verifyAcctBean extends HttpServlet {
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+
 		String eQUERY = "SELECT * FROM registrations WHERE email = '" + email + "';";
 		String target = "";
 
@@ -72,10 +81,13 @@ public class verifyAcctBean extends HttpServlet {
 				dbemail = rs.getString(4);
 				dbpassword = rs.getString(5);
 				dbcustomerid = rs.getInt(1);
+				
 				dbemail = dbemail.toString();
 				dbpassword = dbpassword.toString();
-
-				if (password.equals(dbpassword)) {
+				
+				String decPass = caesarCipherDecrypte(dbpassword);
+				
+				if (password.equals(decPass)) {
 
 					String first_name = request.getParameter("first_name");
 					String last_name = request.getParameter("last_name");
@@ -104,7 +116,7 @@ public class verifyAcctBean extends HttpServlet {
 					return;
 				}
 
-				if (!password.equals(dbpassword)) {
+				if (!password.equals(decPass)) {
 
 					int input = JOptionPane.showOptionDialog(null, "Password incorrect. Please try again", "Error", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 

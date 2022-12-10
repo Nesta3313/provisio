@@ -7,26 +7,24 @@ import java.sql.SQLException;
 
 
 public class createAcctBean {
-
-    public int createAcct(acctBean acct) throws ClassNotFoundException {
+	
+    public int createAcct(acctBean acct) throws Exception {
         String INSERT_USERS_SQL = "INSERT INTO provisio.registrations" +
-            "  (customer_id, first_name, last_name, email, password) VALUES " +
-            " (?, ?, ?, ?, ?);";
+            "  (first_name, last_name, email, password) VALUES " +
+            " (?, ?, ?, ?);";
 
         int result = 0;
-        int rand = ((int)(Math.random() * 9999999) + 1);
         
         Class.forName("com.mysql.jdbc.Driver");
-
+        
         try (Connection conn = DriverManager
             .getConnection("jdbc:mysql://localhost:3306/provisio", "root", "MySQL8IsGreat!");
 
             PreparedStatement stmt = conn.prepareStatement(INSERT_USERS_SQL)) {
-        	stmt.setInt(1, rand);
-            stmt.setString(2, acct.getFirstName());
-            stmt.setString(3, acct.getLastName());
-            stmt.setString(4, acct.getEmail());
-            stmt.setString(5, acct.getPassword())
+            stmt.setString(1, acct.getFirstName());
+            stmt.setString(2, acct.getLastName());
+            stmt.setString(3, acct.getEmail());
+            stmt.setString(4, acct.getPassword2());
 ;
             System.out.println(stmt);
             result = stmt.executeUpdate();

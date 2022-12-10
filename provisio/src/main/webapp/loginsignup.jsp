@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="javax.servlet.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +17,9 @@
 	function success2() {
 		var pass = document.getElementById("password2").value;
 		var confirmpass = document.getElementById("confirmpass").value;
+		var lowerCaseLetters = /[a-z]/g;
+		var upperCaseLetters = /[A-Z]/g;
+		var numbers = /[0-9]/g;
 		
 		document.getElementById("fname_error").innerHTML = "";
 		document.getElementById("lname_error").innerHTML = "";
@@ -47,9 +50,13 @@
 				document.getElementById("email2_error").innerHTML = "Please enter an email";
 			}
 			
-			if (document.getElementById("password2").value === ""){
+			if (document.getElementById("password2").value === "" ||
+				!document.getElementById("password2").value.match(lowerCaseLetters) ||
+				!document.getElementById("password2").value.match(upperCaseLetters) ||
+				!document.getElementById("password2").value.match(numbers) ||
+				document.getElementById("password2").value.length < 8){
 				document.getElementById('button2').disabled = true;
-				document.getElementById("password2_error").innerHTML = "Please enter a password";
+				document.getElementById("password2_error").innerHTML = "Password does not meet requirements";
 			}
 			
 			if (document.getElementById("confirmpass").value === ""){
@@ -138,7 +145,7 @@
 	<div class="cont">
 		<div class="form sign-in">
 			<form name="login" action="${pageContext.request.contextPath}/verify"
-				method="get" onSubmit="document.getElementById('login').reset();">
+				method="get" onSubmit="document.getElementById('login').reset()">
 				<h2>Welcome to Provisio Hotels and Resorts</h2>
 				<label> <span>Email</span> 
 				<input id="email" type="email"
@@ -190,8 +197,7 @@
 						name="email2" onkeyup="success2()">
 					</label>
 					<span id="email2_error"></span>
-					<label> <span>Password</span> <input type="password"
-						id="password2" name="password2" onkeyup="success2()">
+					<label> <span>Password<img src="images/quesmark.png" width=10px height=10px title="Password must contain: &#013; 1 uppercase letter &#013; 1 lowercase letter &#013; 1 number &#013; Atleast 8 characters"></span><input type="password" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required onkeyup="success2()">
 					</label>
 					<span id="password2_error"></span>
 					<label> <span>Confirm Password</span> <input
