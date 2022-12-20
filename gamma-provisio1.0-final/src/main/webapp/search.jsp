@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Provisio Hotels and Resorts</title>
-    <link rel='stylesheet'><link rel="stylesheet" href="./navigation.css">
-    <link rel='stylesheet'><link rel="stylesheet" href="./navigation2.css">
-    <link rel='stylesheet'><link rel="stylesheet" href="./index.css">
-  
-</head>
-<body>
-    <!--First Nav Bar-->
-    <nav class="navbar">
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta content="text/html; charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel='stylesheet'><link rel="stylesheet" href="./styles/navigation.css">
+<link rel='stylesheet'><link rel="stylesheet" href="./styles/navigation2.css">
+<link rel='stylesheet'><link rel="stylesheet" href="./styles/search.css">
+
+<title>Find Reservation</title> 
+</head> 
+
+<body> 
+	<nav class="navbar">
+
         <div class="container">
       
           <div class="navbar-header">
@@ -19,16 +23,16 @@
                 <span></span>
               </button>
               <a href="#">
-                <img src="images/provisiologo.jpg" alt="Paris" class="center" width="150px" height="auto">
+                <img src="images/ProvisioLogo.png" alt="Paris" class="center" width="150px" height="auto">
               </a>
             
           </div>
       
           <div class="navbar-menu" id="open-navbar1">
             <ul class="navbar-nav">
-              <li><a href="#">HOME</a></li>
+              <li><a href="./index.html">HOME</a></li>
               <li class="navbar-dropdown">
-                <a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+                <a href="about.html" class="dropdown-toggler" data-dropdown="my-dropdown-id">
                   ABOUT US <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown" id="my-dropdown-id">
@@ -41,7 +45,7 @@
                 </ul>
               </li>
               <li class="navbar-dropdown">
-                <a href="#" class="dropdown-toggler" data-dropdown="blog">
+                <a href="about.html" class="dropdown-toggler" data-dropdown="blog">
                   CONTACT <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown" id="blog">
@@ -53,63 +57,41 @@
                   <li><a href="#">One more seprated link.</a></li>
                 </ul>
               </li>
-              <li><a href="#">LOCATIONS</a></li>
-              <li><a href="#">MAKE RESERVATIONS</a></li>
+              <li><a href="location.html">LOCATIONS</a></li>
+              <li><a href="makereservation.jsp">MAKE RESERVATIONS</a></li>
             </ul>
           </div>
         </div>
       </nav>
-      <!--Second Nav Bar-->
-      <nav class="navbar2">
+	<nav class="navbar2">
         <div class="container">
             <div class="navbar2-menu" id="open-navbar2">
               <ul class="navbar2-nav">
-                <li><a href="login/login.html">SIGN IN</a></li>
-                <li><a href="#">LOYALTY POINTS</a></li>
+                <li><a href="./loginsignup.jsp">SIGN IN</a></li>
+                <li><a href="loyaltypoints.jsp">LOYALTY POINTS</a></li>
                 <li><a href="#">SEARCH RESERVATIONS</a></li>
               </ul>
             </div>
           </div>
       </nav>
-      
-      <!-- partial -->
-    <script  src="./script.js"></script>
+	<script  src="./scripts/script.js"></script>
 
+	<div class="grid-container">
+		
+    	<div>
+        	<form action="Fetch" method="post" class="form"> 
+        		<p class="call">Find Your Reservation</p><br>
+				<input type="text" class="search" placeholder="Enter Reservation ID" name="id" required> 
+				<input type="submit" class="submit" value="SEARCH"> 
+			</form> 
+   	 	</div>
 
-
-
-
-
-    <div id="page">
-
-        <div id="banner-container">
-            <div id="img-div"> <img id="img" src="images/banner-2000-800-px.jpg" /> </div>
-        </div>
-
-        <div id="text">
-
-          <div class="txt-inner" id="luxury">
-            <div class="luxury-character"> <h1> L </h1> </div>
-            <div class="luxury-character"> <h1> U </h1> </div>
-            <div class="luxury-character">  <h1> X </h1></div>
-            <div class="luxury-character">  <h1> U </h1></div>
-            <div class="luxury-character">  <h1> R </h1></div>
-            <div class="luxury-character"> <h1> Y </h1> </div>
-          </div>
-
-
-          <div class="txt-inner" id="at"> <h1 id="at-word"> AT </h1></div>
-
-          <div class="txt-inner" id="ays"> <h1 id="ays-word"> YOUR SERVICE </h1> </div>
-
-        </div>
+    	<div>
+        	<img src="images/court.png" class= "pic"alt="Girl in a jacket" width="500" height="400">
+    	</div>
+  
     </div>
-
-
-
-
-
-
+    
     <footer>
         <div id="footer">
             <p> <a href="#" target="_blank"> PROVISIO </a> 
@@ -118,6 +100,6 @@
         </div>
         
     </footer>
-      
-</body>
-</html>
+    	
+</body> 
+</html> 

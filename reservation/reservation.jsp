@@ -82,27 +82,7 @@
 
     <div id="page">
 
-        <div id="banner-container">
-            <div id="img-div"> <img id="img" src="images/banner-2000-800-px.jpg" /> </div>
-        </div>
-
-        <div id="text">
-
-          <div class="txt-inner" id="luxury">
-            <div class="luxury-character"> <h1> L </h1> </div>
-            <div class="luxury-character"> <h1> U </h1> </div>
-            <div class="luxury-character">  <h1> X </h1></div>
-            <div class="luxury-character">  <h1> U </h1></div>
-            <div class="luxury-character">  <h1> R </h1></div>
-            <div class="luxury-character"> <h1> Y </h1> </div>
-          </div>
-
-
-          <div class="txt-inner" id="at"> <h1 id="at-word"> AT </h1></div>
-
-          <div class="txt-inner" id="ays"> <h1 id="ays-word"> YOUR SERVICE </h1> </div>
-
-        </div>
+        
     </div>
 
 

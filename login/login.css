@@ -1,0 +1,25 @@
+.mainimg {
+    max-width: 67%;
+    float: right;
+}
+
+#mainlog {
+    max-width: 30%;
+    align-items: center;
+    margin-top: 350px;
+}
+
+.logindiv, .passdiv {
+
+    margin: 15px;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+}
+
+#page{
+    margin-top: 5%;  /* keeps username text box from being in lower nav bar */
+}
