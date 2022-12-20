@@ -12,7 +12,7 @@ CREATE TABLE hotel (
 );
 
 CREATE TABLE registrations (
-    customer_ID int NOT NULL,
+    customer_ID int NOT NULL AUTO_INCREMENT,
     first_name varchar(255) NOT NULL,
     last_name varchar(255) NOT NULL,
     email varchar(255) NOT NULL,
@@ -48,11 +48,11 @@ INSERT INTO hotel VALUES (200, 'The Loft by Provisio', 'Chicago IL');
 INSERT INTO hotel VALUES (404, 'Provisio Hotel', 'Atlanta GA');
 INSERT INTO hotel VALUES (201, 'The Grand Provisio', 'Las Vegas, NV');
 
-INSERT INTO registrations VALUES (100, 'Joe', 'Byron', 'byron@mail.com', 'byron123');
-INSERT INTO registrations VALUES (2002, 'Tom', 'Holland', 'spiderverse@mail.net', 'peter123');
-INSERT INTO registrations VALUES (101, 'Celine', 'Dion', 'celine@celine.com', '123456');
+INSERT INTO registrations VALUES ( customer_id, 'Joe', 'Byron', 'byron@mail.com', 'AQnQ|86f}prU'); /*Byron123*/
+INSERT INTO registrations VALUES ( customer_id, 'Tom', 'Holland', 'spiderverse@mail.net', 'AQnQ|M\^4ZKY'); /*Peter123*/
+INSERT INTO registrations VALUES ( customer_id, 'Celine', 'Dion', 'celine@celine.com', '~MXQp9[ewZ6U');  /*Celine123*/
 
-INSERT INTO reservations VALUES (222, 200, '2022-12-20', '2022-12-24', 2, 100, 'Chicago, IL', 'king', 'breakfast', 600);
-INSERT INTO reservations VALUES (330, 404, '2023-01-13', '2023-01-14', 1, 2002, 'Atlanta GA', 'queen', 'wi-fi', 150);
-INSERT INTO reservations VALUES (3000, 201, '2022-11-08', '2022-11-10', '4-5', 101, 'Las vegas, NV', 'king', 'parking', 300);
+INSERT INTO reservations VALUES (222, 200, '2022-12-20', '2022-12-24', 2, 1, 'Chicago, IL', 'king', 'breakfast', 600);
+INSERT INTO reservations VALUES (330, 404, '2023-01-13', '2023-01-14', 1, 2, 'Atlanta GA', 'queen', 'wi-fi', 150);
+INSERT INTO reservations VALUES (3000, 201, '2022-11-08', '2022-11-10', '4-5', 3, 'Las vegas, NV', 'king', 'parking', 300);
 
